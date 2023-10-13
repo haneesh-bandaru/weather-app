@@ -1,0 +1,45 @@
+.forecast-main {
+  display: flex;
+  justify-content: center;
+}
+.forecast-search {
+  width: fit-content;
+  background-color: antiquewhite;
+  border-radius: 25px;
+}
+.forecast-display {
+  display: flex;
+  gap: 80px;
+  border: 2px black;
+}
+.forecast-temp{
+  padding-top: 60px;
+}
+.forecast-search-button {
+  height: 3em;
+  width: 3em;
+}
+.forecast-search-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.day-background {
+  background-color: yellow;
+  background-image: url("../../assets/morning.jpg");
+  /* height: 100vh; */
+  background-size: cover; /* Adjust this as needed */
+  background-repeat: repeat-y;
+}
+
+.night-background {
+  background-image: url("../../assets/night.jpg");
+  color: white;
+  /* height: 100vh; */
+  background-size: cover; /* Adjust this as needed */
+  background-repeat: repeat-y;
+}
+
+.forecast-head {
+  text-transform: capitalize;
+}
