@@ -24,6 +24,7 @@ const Forecast = () => {
   const [isDay, setIsDay] = useState(true);
   const [openSectionIndex, setOpenSectionIndex] = useState(null);
   const [localtimeEpoch, setLocaltimeEpoch] = useState(null);
+  const [searchText, setSearchText] = useState("hongkong"); // Added a searchText state
 
   const API_KEY = "5df1326e36cf430a820180714231210";
 
@@ -57,8 +58,8 @@ const Forecast = () => {
   };
 
   useEffect(() => {
-    fetchWeatherData(place);
-  }, [place]);
+    fetchWeatherData(searchText); // Fetch weather data based on searchText
+  }, [searchText]);
 
   const toggleMoreInfo = (index, date) => {
     if (index === openSectionIndex) {
@@ -75,8 +76,10 @@ const Forecast = () => {
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
 
+  // Handler for the search button
   const handleSearch = () => {
     fetchWeatherData(place);
+    setPlace(""); // Clear the search text after searching
   };
 
   const handleTextInputChange = (event) => {
@@ -86,13 +89,14 @@ const Forecast = () => {
 
   return (
     <div className={isDay ? "day-background" : "night-background"}>
-      <h1 className="forecast-head">weather information:</h1>
+      <Typography className="forecast-head" variant="h2">Climate Compass</Typography>
       <div className="forecast-search-div">
         <TextField
           className="forecast-search"
           id="filled-basic"
           label="Search"
           variant="outlined"
+          value={place}
           onChange={handleTextInputChange}
         />
         <AiOutlineSearch
